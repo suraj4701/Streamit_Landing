@@ -1,0 +1,58 @@
+import { expect, test } from '@playwright/test';
+import { EnvantoStreamitAppVerify, UserAppPlaystore } from './common';
+const home_url = process.env.HOME_URL;
+
+test("FlutterApp Buy Now", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover()
+    await page.locator("//li[@id='menu-item-5485']").click()
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    await EnvantoStreamitAppVerify(page, EnvantoStreamitVerifyLocator);
+})
+
+test("FlutterApp View Demo", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover()
+    await page.locator("//li[@id='menu-item-5485']").click()
+    const adminpanelLocator = page.locator("//a[contains(text(),'View Demo')]");
+    await UserAppPlaystore(page, adminpanelLocator);
+})
+
+test("FlutterApp Buy Now 2", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover()
+    await page.locator("//li[@id='menu-item-5485']").click()
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/a[1]");
+    await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
+    await EnvantoStreamitAppVerify(page, EnvantoStreamitVerifyLocator);
+})
+
+test("FlutterApp Buy Now 3", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover()
+    await page.locator("//li[@id='menu-item-5485']").click()
+    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[17]/div[1]/div[3]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/a[1]");
+    await LinkLocator.scrollIntoViewIfNeeded();
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        LinkLocator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://service.iqonic.design/services/streamit-flutter-app-with-laravel-backend/");
+})
+
+test("FlutterApp View All Services", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover()
+    await page.locator("//li[@id='menu-item-5485']").click()
+    const LinkLocator = page.locator("//a[contains(text(),'View all services')]");
+    await LinkLocator.scrollIntoViewIfNeeded();
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        LinkLocator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://service.iqonic.design/services/");
+})

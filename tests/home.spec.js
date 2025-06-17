@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { UserWebsiteVerify, AdminPanelVerify, UserAppPlaystore, EnvantoStreamitVerify, EnvantoStreamitAppVerify, EnvantoStreamitTvAppVerify } = require('./common');
+import { expect, test } from '@playwright/test';
+import { AdminPanelVerify, EnvantoStreamitAppVerify, EnvantoStreamitTvAppVerify, EnvantoStreamitVerify, UserAppPlaystore, UserWebsiteVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Home User Website Verify", async ({ page }) => {

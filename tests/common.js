@@ -1,4 +1,4 @@
-const { expect } = require('@playwright/test');
+import { expect } from '@playwright/test';
 
 const UserWebsiteVerify = async (page, locator) => {
 
@@ -74,4 +74,4 @@ const EnvantoStreamitTvAppVerify = async (page, locator) => {
     return newPage;
 }
 
-module.exports = { UserWebsiteVerify, AdminPanelVerify, UserAppPlaystore, EnvantoStreamitVerify,EnvantoStreamitAppVerify,EnvantoStreamitTvAppVerify }
+export default { UserWebsiteVerify, AdminPanelVerify, UserAppPlaystore, EnvantoStreamitVerify, EnvantoStreamitAppVerify, EnvantoStreamitTvAppVerify }

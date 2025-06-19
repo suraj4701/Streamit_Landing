@@ -1,4 +1,4 @@
-import { expect } from '@playwright/test';
+const { expect } = require('@playwright/test');
 
 const UserWebsiteVerify = async (page, locator) => {
 
@@ -38,6 +38,20 @@ const UserAppPlaystore = async (page, locator) => {
     return newPage;
 }
 
+const TvAppPlaystore = async (page, locator) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://play.google.com/store/apps/details?id=com.iqonic.streamitlaraveltv");
+    const trustpilotLocator = newPage.locator("//body[1]/c-wiz[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/c-wiz[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
+    const verifytext = await trustpilotLocator.textContent();
+    expect(verifytext).toContain('Streamit Laravel TV App');
+    return newPage;
+}
+
 const EnvantoStreamitVerify = async (page, locator) => {
 
     const [newPage] = await Promise.all([
@@ -74,4 +88,4 @@ const EnvantoStreamitTvAppVerify = async (page, locator) => {
     return newPage;
 }
 
-export default { UserWebsiteVerify, AdminPanelVerify, UserAppPlaystore, EnvantoStreamitVerify, EnvantoStreamitAppVerify, EnvantoStreamitTvAppVerify }
+module.exports = { UserWebsiteVerify, AdminPanelVerify, UserAppPlaystore, EnvantoStreamitVerify, EnvantoStreamitAppVerify, TvAppPlaystore, EnvantoStreamitTvAppVerify }

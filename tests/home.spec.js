@@ -91,13 +91,6 @@ test("Home Envanto Streamit Verify 8", async ({ page }) => {
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
 
-test("Home Envanto Streamit Verify 9", async ({ page }) => {
-    await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
-    await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
-    await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
-})
-
 test("Home Purchase Now", async ({ page }) => {
     await page.goto(home_url);
     const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]");

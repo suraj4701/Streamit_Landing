@@ -6,7 +6,7 @@ test("FlutterApp Buy Now", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover()
     await page.locator("//li[@id='menu-item-5485']").click()
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitAppVerify(page, EnvantoStreamitVerifyLocator);
 })
 
@@ -22,24 +22,18 @@ test("FlutterApp Buy Now 2", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover()
     await page.locator("//li[@id='menu-item-5485']").click()
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[20]/div[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitAppVerify(page, EnvantoStreamitVerifyLocator);
 })
 
-test("FlutterApp Buy Now 3", async ({ page }) => {
+test("FlutterApp View Demo 2", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover()
     await page.locator("//li[@id='menu-item-5485']").click()
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[20]/div[1]/div[3]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/a[1]");
+    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/a[1]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://service.iqonic.design/services/streamit-flutter-app-with-laravel-backend/");
+    await UserAppPlaystore(page, LinkLocator);
 })
 
 test("FlutterApp View All Services", async ({ page }) => {

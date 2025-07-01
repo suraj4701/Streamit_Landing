@@ -37,56 +37,56 @@ test("Home User App Playstore", async ({ page }) => {
 
 test("Home Envanto Streamit Verify", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
 
 test("Home Envanto Streamit Verify 2", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
 
 test("Home Envanto Streamit Verify 3", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
 
 test("Home Envanto Streamit Verify 4", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
 
 test("Home Envanto Streamit Verify 5", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
 
 test("Home Envanto Streamit Verify 6", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
 
 test("Home Envanto Streamit Verify 7", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
 
 test("Home Envanto Streamit Verify 8", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })

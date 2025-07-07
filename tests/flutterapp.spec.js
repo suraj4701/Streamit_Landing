@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { EnvantoStreamitAppVerify, UserAppPlaystore } from './common';
+import { BookcallVerify, EnvantoStreamitAppVerify, UserAppPlaystore } from './common';
 const home_url = process.env.HOME_URL;
 
 test("FlutterApp Buy Now", async ({ page }) => {
@@ -16,6 +16,14 @@ test("FlutterApp View Demo", async ({ page }) => {
     await page.locator("//li[@id='menu-item-5485']").click()
     const adminpanelLocator = page.locator("//a[contains(text(),'View Demo')]");
     await UserAppPlaystore(page, adminpanelLocator);
+})
+
+test("FlutterApp Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover()
+    await page.locator("//li[@id='menu-item-5485']").click()
+    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, Locator);
 })
 
 test("FlutterApp Buy Now 2", async ({ page }) => {

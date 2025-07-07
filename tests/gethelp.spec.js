@@ -1,6 +1,14 @@
 import { expect, test } from '@playwright/test';
-import { AdminPanelVerify, TvAppPlaystore, UserAppPlaystore, UserWebsiteVerify } from './common';
+import { AdminPanelVerify, BookcallVerify, TvAppPlaystore, UserAppPlaystore, UserWebsiteVerify } from './common';
 const home_url = process.env.HOME_URL;
+
+test("Gethelp ExploreDemo Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1199']").hover();
+    await page.locator("//li[@id='menu-item-1200']").click();
+    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, Locator);
+})
 
 test("Gethelp ExploreDemo View Demo", async ({ page }) => {
     await page.goto(home_url);

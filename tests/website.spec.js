@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { EnvantoStreamitVerify, UserWebsiteVerify } from './common';
+import { BookcallVerify, EnvantoStreamitVerify, UserWebsiteVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Website Buy Now", async ({ page }) => {
@@ -16,6 +16,14 @@ test("Website View Demo", async ({ page }) => {
     await page.locator("//li[@id='menu-item-2106']").click();
     const websiteLocator = page.locator("//a[contains(text(),'View Demo')]");
     await UserWebsiteVerify(page, websiteLocator);
+})
+
+test("Website Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover();
+    await page.locator("//li[@id='menu-item-2106']").click();
+    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, Locator);
 })
 
 test("Website Buy Now 2", async ({ page }) => {

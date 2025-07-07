@@ -88,4 +88,15 @@ const EnvantoStreamitTvAppVerify = async (page, locator) => {
     return newPage;
 }
 
-module.exports = { UserWebsiteVerify, AdminPanelVerify, UserAppPlaystore, EnvantoStreamitVerify, EnvantoStreamitAppVerify, TvAppPlaystore, EnvantoStreamitTvAppVerify }
+const BookcallVerify = async (page, locator) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/streamit-laravel");
+    return newPage;
+}
+
+module.exports = { UserWebsiteVerify, AdminPanelVerify, BookcallVerify, UserAppPlaystore, EnvantoStreamitVerify, EnvantoStreamitAppVerify, TvAppPlaystore, EnvantoStreamitTvAppVerify }

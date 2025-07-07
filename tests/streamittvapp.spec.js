@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { EnvantoStreamitTvAppVerify, TvAppPlaystore } from './common';
+import { BookcallVerify, EnvantoStreamitTvAppVerify, TvAppPlaystore } from './common';
 const home_url = process.env.HOME_URL;
 
 test("StreamitTvApp Buy Now", async ({ page }) => {
@@ -16,6 +16,23 @@ test("StreamitTvApp Tv App Playstore", async ({ page }) => {
     await page.locator("//li[@id='menu-item-5270']").click();
     const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]");
     await TvAppPlaystore(page, adminpanelLocator);
+})
+
+test("StreamitTvApp Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover();
+    await page.locator("//li[@id='menu-item-5270']").click();
+    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, Locator);
+})
+
+test("StreamitTvApp Book a quick call 2", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1195']").hover();
+    await page.locator("//li[@id='menu-item-5270']").click();
+    const Locator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    await Locator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, Locator);
 })
 
 test("StreamitTvApp Buy Now 2", async ({ page }) => {
@@ -117,7 +134,7 @@ test("StreamitTvApp Buy Now 12", async ({ page }) => {
     await EnvantoStreamitTvAppVerify(page, EnvantoStreamitVerifyLocator);
 })
 
-test("StreamitTvApp BuyNow 13", async ({ page }) => {
+test("StreamitTvApp Buy Now 13", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover();
     await page.locator("//li[@id='menu-item-5270']").click();

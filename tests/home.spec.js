@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { AdminPanelVerify, EnvantoStreamitAppVerify, EnvantoStreamitTvAppVerify, EnvantoStreamitVerify, UserAppPlaystore, UserWebsiteVerify } from './common';
+import { AdminPanelVerify, BookcallVerify, EnvantoStreamitAppVerify, EnvantoStreamitTvAppVerify, EnvantoStreamitVerify, UserAppPlaystore, UserWebsiteVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Home User Website Verify", async ({ page }) => {
@@ -12,6 +12,26 @@ test("Home Admin Panel Verify", async ({ page }) => {
     await page.goto(home_url);
     const Locator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]");
     await AdminPanelVerify(page, Locator);
+})
+
+test("Home Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, Locator);
+})
+
+test("Home Book a quick call 2", async ({ page }) => {
+    await page.goto(home_url);
+    const Locator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    await Locator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, Locator);
+})
+
+test("Home Book a quick call 3", async ({ page }) => {
+    await page.goto(home_url);
+    const Locator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    await Locator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, Locator);
 })
 
 test("Home View Demo", async ({ page }) => {
@@ -89,6 +109,13 @@ test("Home Envanto Streamit Verify 8", async ({ page }) => {
     const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
+})
+
+test("Home Book a quick call 4", async ({ page }) => {
+    await page.goto(home_url);
+    const Locator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[13]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    await Locator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, Locator);
 })
 
 test("Home Purchase Now", async ({ page }) => {

@@ -6,7 +6,7 @@ test("Gethelp ExploreDemo Book a quick call", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1199']").hover();
     await page.locator("//li[@id='menu-item-1200']").click();
-    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    const Locator = page.locator("//a[normalize-space()='Book a quick call.']");
     await BookcallVerify(page, Locator);
 })
 
@@ -69,7 +69,7 @@ test("Gethelp Documentation", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://apps.iqonic.design/documentation/streamit-laravel-documentation/build/");
+    expect(newPageUrl).toBe("https://documentation.iqonic.design/streamit-laravel/");
 })
 
 test("Gethelp Tv App docs", async ({ page }) => {

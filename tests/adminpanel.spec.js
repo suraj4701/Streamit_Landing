@@ -22,7 +22,7 @@ test("AdminPanel Book a quick call", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover();
     await page.locator("//li[@id='menu-item-1196']").click();
-    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    const Locator = page.locator("//a[normalize-space()='Book a quick call.']");
     await BookcallVerify(page, Locator);
 })
 
@@ -102,7 +102,7 @@ test("AdminPanel Buy Now 6", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover();
     await page.locator("//li[@id='menu-item-1196']").click();
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-51f5167 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Buy Now']");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
@@ -111,7 +111,7 @@ test("AdminPanel View 6", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover();
     await page.locator("//li[@id='menu-item-1196']").click();
-    const Locator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]");
+    const Locator = page.locator("//div[contains(@class,'elementor-element elementor-element-2be453a elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='view demo']");
     await Locator.scrollIntoViewIfNeeded();
     await AdminPanelVerify(page, Locator);
 })

@@ -95,7 +95,7 @@ const BookcallVerify = async (page, locator) => {
         locator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/streamit-laravel");
+    expect(newPageUrl).toBe("https://streamit-laravel.iqonic.design/streamit-laravel-demo-call/");
     return newPage;
 }
 

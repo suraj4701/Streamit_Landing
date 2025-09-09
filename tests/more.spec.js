@@ -22,7 +22,7 @@ test("More Book Demo Call", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/streamit-laravel");
+    expect(newPageUrl).toBe("https://streamit-laravel.iqonic.design/streamit-laravel-demo-call/");
 })
 
 test("More Buy Now", async ({ page }) => {

@@ -22,7 +22,7 @@ test("StreamitTvApp Book a quick call", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover();
     await page.locator("//li[@id='menu-item-5270']").click();
-    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    const Locator = page.locator("//a[normalize-space()='Book a quick call.']");
     await BookcallVerify(page, Locator);
 })
 

@@ -16,7 +16,7 @@ test("Home Admin Panel Verify", async ({ page }) => {
 
 test("Home Book a quick call", async ({ page }) => {
     await page.goto(home_url);
-    const Locator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    const Locator = page.locator("//a[normalize-space()='Book a quick call.']");
     await BookcallVerify(page, Locator);
 })
 
@@ -113,7 +113,7 @@ test("Home Envanto Streamit Verify 8", async ({ page }) => {
 
 test("Home Book a quick call 4", async ({ page }) => {
     await page.goto(home_url);
-    const Locator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[13]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const Locator = page.locator("//a[normalize-space()='Talk to an OTT Expert']");
     await Locator.scrollIntoViewIfNeeded();
     await BookcallVerify(page, Locator);
 })
@@ -246,10 +246,14 @@ test("Home Footer Docs", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]");
     await LinkLocator.scrollIntoViewIfNeeded();
-    await LinkLocator.click();
-    await page.waitForURL("https://apps.iqonic.design/documentation/streamit-laravel-documentation/build/")
-    const newPageUrl = page.url();
-    expect(newPageUrl).toBe("https://apps.iqonic.design/documentation/streamit-laravel-documentation/build/");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        LinkLocator.click()
+    ])
+
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://documentation.iqonic.design/streamit-laravel/");
 });
 
 test("Home Footer FAQ", async ({ page }) => {
@@ -336,7 +340,7 @@ test("Home Footer Facebook", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://www.facebook.com/iqonicdesign");
+    expect(newPageUrl).toBe("https://www.facebook.com/people/Streamit/61580315249819/");
 })
 
 test("Home Footer Instagram", async ({ page }) => {
@@ -349,7 +353,7 @@ test("Home Footer Instagram", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://www.instagram.com/iqonicdesign/");
+    expect(newPageUrl).toBe("https://www.instagram.com/streamit.tech/");
 })
 
 test("Home Footer Youtube", async ({ page }) => {
@@ -367,7 +371,7 @@ test("Home Footer Youtube", async ({ page }) => {
 
 test("Home Footer X-Twitter", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/span[4]/a[1]");
+    const LinkLocator = page.locator("//a[@class='elementor-icon elementor-social-icon elementor-social-icon-x-twitter elementor-repeater-item-a0526cd']");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([

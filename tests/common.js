@@ -99,4 +99,17 @@ const BookcallVerify = async (page, locator) => {
     return newPage;
 }
 
-module.exports = { UserWebsiteVerify, AdminPanelVerify, BookcallVerify, UserAppPlaystore, EnvantoStreamitVerify, EnvantoStreamitAppVerify, TvAppPlaystore, EnvantoStreamitTvAppVerify }
+const CommonLinkVerify = async (page, locator, link) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const newPageUrl = newPage.url();
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe(link);
+    return newPage;
+}
+
+module.exports = { UserWebsiteVerify, AdminPanelVerify, BookcallVerify, UserAppPlaystore, EnvantoStreamitVerify, EnvantoStreamitAppVerify, TvAppPlaystore, EnvantoStreamitTvAppVerify, CommonLinkVerify }

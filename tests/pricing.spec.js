@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test';
-import { EnvantoStreamitAppVerify, EnvantoStreamitTvAppVerify, EnvantoStreamitVerify } from './common';
+import { CommonLinkVerify, EnvantoStreamitAppVerify, EnvantoStreamitTvAppVerify, EnvantoStreamitVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Pricing Purchase Now", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1198']").click();
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-2a3d809 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Purchase Now']");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitVerify(page, EnvantoStreamitVerifyLocator);
 })
@@ -13,7 +13,7 @@ test("Pricing Purchase Now", async ({ page }) => {
 test("Pricing Purchase Now 2", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1198']").click();
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-866c032 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Purchase Now']");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitAppVerify(page, EnvantoStreamitVerifyLocator);
 })
@@ -21,7 +21,7 @@ test("Pricing Purchase Now 2", async ({ page }) => {
 test("Pricing Purchase Now 3", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1198']").click();
-    const EnvantoStreamitVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoStreamitVerifyLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-318185e elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Purchase Now']");
     await EnvantoStreamitVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoStreamitTvAppVerify(page, EnvantoStreamitVerifyLocator);
 })
@@ -29,7 +29,7 @@ test("Pricing Purchase Now 3", async ({ page }) => {
 test("Pricing Buy Service", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1198']").click();
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const LinkLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-615aaf3 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Buy Service']");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -44,27 +44,17 @@ test("Pricing Buy Service", async ({ page }) => {
 test("Pricing Buy Service 2", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1198']").click();
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const LinkLocator = page.locator("//a[contains(@href,'https://service.iqonic.design/services/streamit-flutter-app-with-laravel-backend/')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://service.iqonic.design/services/streamit-flutter-app-with-laravel-backend/");
+    const expectedLink = "https://service.iqonic.design/services/streamit-flutter-app-with-laravel-backend/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Pricing Buy Service 3", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1198']").click();
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const LinkLocator = page.locator("//a[contains(@href,'https://service.iqonic.design/services/streamit-tv-app-add-on-with-laravel-backend/')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://service.iqonic.design/services/streamit-tv-app-add-on-with-laravel-backend/");
+    const expectedLink = "https://service.iqonic.design/services/streamit-tv-app-add-on-with-laravel-backend/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })

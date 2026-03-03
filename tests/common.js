@@ -6,7 +6,7 @@ const UserWebsiteVerify = async (page, locator) => {
         page.context().waitForEvent('page'),
         locator.click()
     ])
-    await newPage.waitForLoadState('networkidle');
+    await newPage.waitForLoadState('load');
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://apps.iqonic.design/streamit-laravel/");
     return newPage;
@@ -60,7 +60,7 @@ const EnvantoStreamitVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Streamit Laravel - Movie, TV Show, Video Streaming Platform With Laravel with ChatGPT');
+    expect(verifytext).toContain('Streamit Laravel- OTT, Movies & Live Video Streaming Platform');
     return newPage;
 }
 
@@ -72,7 +72,7 @@ const EnvantoStreamitAppVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Streamit - OTT Streaming Flutter App (Add-on)');
+    expect(verifytext).toContain('Streamit - OTT Live Video Streaming App Built with Flutter');
     return newPage;
 }
 
@@ -84,7 +84,7 @@ const EnvantoStreamitTvAppVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Streamit - OTT Streaming Flutter TV App (Add-on)');
+    expect(verifytext).toContain('Streamit - OTT TV App for Video Streaming Built with Flutter');
     return newPage;
 }
 
@@ -94,8 +94,11 @@ const BookcallVerify = async (page, locator) => {
         page.context().waitForEvent('page'),
         locator.click()
     ])
+
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://streamit-laravel.iqonic.design/streamit-laravel-demo-call/");
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe("https://streamit.tech/streamit-laravel-demo-call/");
     return newPage;
 }
 

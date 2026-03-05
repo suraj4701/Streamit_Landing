@@ -59,8 +59,9 @@ const EnvantoStreamitVerify = async (page, locator) => {
         locator.click()
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Streamit Laravel- OTT, Movies & Live Video Streaming Platform');
+    const rawText = await iqonicDesignSpanLocator.textContent();
+    const verifytext = rawText.replace(/\s+/g, ' ').trim();
+    expect(verifytext).toContain('Streamit Laravel - OTT, Movies & Live Video Streaming Platform');
     return newPage;
 }
 

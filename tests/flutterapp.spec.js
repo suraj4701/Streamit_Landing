@@ -52,7 +52,7 @@ test("FlutterApp Book a quick call 2", async ({ page }) => {
     await BookcallVerify(page, Locator);
 })
 
-test("Home Buy Now 3", async ({ page }) => {
+test("FlutterApp Buy Now 3", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover()
     await page.locator("//li[@id='menu-item-5485']").click()
@@ -61,7 +61,7 @@ test("Home Buy Now 3", async ({ page }) => {
     await EnvantoStreamitAppVerify(page, EnvantoStreamitVerifyLocator);
 })
 
-test("Home Buy Now 4", async ({ page }) => {
+test("FlutterApp Buy Now 4", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1195']").hover()
     await page.locator("//li[@id='menu-item-5485']").click()

@@ -29,7 +29,7 @@ test("Pricing Purchase Now 3", async ({ page }) => {
 test("Pricing Buy Service", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1198']").click();
-    const LinkLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-615aaf3 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Buy Service']");
+    const LinkLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-615aaf3 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Purchase Now']");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([

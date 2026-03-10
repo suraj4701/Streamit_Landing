@@ -83,7 +83,7 @@ test("Gethelp Blog", async ({ page }) => {
 test("Gethelp Support", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1199']").hover();
-    const LinkLocator = page.locator("//li[@id='menu-item-1202']//a[@class='ct-menu-link'][normalize-space()='support']");
+    const LinkLocator = page.locator("//li[@id='menu-item-1202']//a[@class='ct-menu-link'][normalize-space()='Support']");
     const expectedLink = "https://iqonic.desky.support/";
     await CommonLinkVerify(page, LinkLocator, expectedLink);
 })

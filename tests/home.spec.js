@@ -283,7 +283,7 @@ test("Home Footer Youtube", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//*[name()='path' and contains(@d,'M549.655 1')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-    const expectedLink = "https://www.youtube.com/c/IqonicDesign";
+    const expectedLink = "https://www.youtube.com/@streamitofficial";
     await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
@@ -299,6 +299,6 @@ test("Home Footer X-Twitter", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//a[@class='elementor-icon elementor-social-icon elementor-social-icon-x-twitter elementor-repeater-item-a0526cd']//*[name()='svg']");
     await LinkLocator.scrollIntoViewIfNeeded();
-    const expectedLink = "https://x.com/iqonicdesign";
+    const expectedLink = "https://x.com/streamit_tech";
     await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
